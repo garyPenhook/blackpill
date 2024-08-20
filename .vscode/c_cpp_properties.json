@@ -1,0 +1,50 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/home/avr1/CLionProjects/bluepill/include",
+                "/home/avr1/CLionProjects/bluepill/src",
+                "/home/avr1/.platformio/packages/framework-libopencm3",
+                "/home/avr1/.platformio/packages/framework-libopencm3/include",
+                "/home/avr1/CLionProjects/bluepill/.pio/libdeps/blackpill_f411ce/CMSIS_6/Include",
+                "/home/avr1/CLionProjects/bluepill/.pio/libdeps/blackpill_f411ce/CMSIS_6",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/home/avr1/CLionProjects/bluepill/include",
+                    "/home/avr1/CLionProjects/bluepill/src",
+                    "/home/avr1/.platformio/packages/framework-libopencm3",
+                    "/home/avr1/.platformio/packages/framework-libopencm3/include",
+                    "/home/avr1/CLionProjects/bluepill/.pio/libdeps/blackpill_f411ce/CMSIS_6/Include",
+                    "/home/avr1/CLionProjects/bluepill/.pio/libdeps/blackpill_f411ce/CMSIS_6",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60115",
+                "STM32F4",
+                "STM32F4xx",
+                "STM32F411xE",
+                "F_CPU=100000000L",
+                ""
+            ],
+            "compilerPath": "/home/avr1/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin/arm-none-eabi-gcc",
+            "compilerArgs": [
+                "-mthumb",
+                "-mcpu=cortex-m4",
+                "-mfloat-abi=hard",
+                "-mfpu=fpv4-sp-d16",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
