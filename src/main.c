@@ -10,10 +10,14 @@
 #define LED_PORT GPIOC
 #define LED_PIN GPIO13
 
-
 void setup_timer(void);
 void setup_gpio(void);
 
+/**
+ * Timer 2 Interrupt Service Routine (ISR)
+ * This ISR is triggered when the timer update interrupt flag is set.
+ * It toggles the LED connected to GPIO13 on port GPIOC.
+ */
 void tim2_isr(void) {
     // Check if the update interrupt flag is set
     if (timer_get_flag(TIM2, TIM_SR_UIF)) {
@@ -25,41 +29,58 @@ void tim2_isr(void) {
     }
 }
 
-void setup_timer(void) {
-    // Enable TIM2 clock
-    rcc_periph_clock_enable(RCC_TIM2);
+/**
+ * Main function
+ * Initializes the GPIO and timer, then enters an infinite loop.
+ */
+int main(void) {
+    // Set up the GPIO for the LED
+    setup_gpio();
 
-    // Set up timer: Prescaler and period for 1 Hz blinking (assuming 100 MHz system clock)
-    timer_set_prescaler(TIM2, 10000 - 1); // Prescaler: 10000
-    timer_set_period(TIM2, 10000 - 1);    // Period: 10000
+    // Set up the timer
+    setup_timer();
 
-    // Enable update interrupt
-    timer_enable_irq(TIM2, TIM_DIER_UIE);
+    // Enable the timer interrupt
+    nvic_enable_irq(NVIC_TIM2_IRQ);
 
-    // Enable timer
+    // Start the timer
     timer_enable_counter(TIM2);
 
-    // Enable TIM2 interrupt in NVIC
-    nvic_enable_irq(NVIC_TIM2_IRQ);
+    // Infinite loop
+    while (1) {
+        // Do nothing, wait for the timer interrupt to toggle the LED
+    }
+
+    return 0;
 }
 
+/**
+ * Set up the GPIO for the LED
+ * Configures GPIO13 on port GPIOC as an output.
+ */
 void setup_gpio(void) {
-    // Enable GPIOC clock
+    // Enable the GPIOC clock
     rcc_periph_clock_enable(RCC_GPIOC);
 
-    // Set GPIOC Pin 13 as output
+    // Set GPIO13 as an output
     gpio_mode_setup(LED_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_PIN);
 }
 
-int main(void) {
-    // Setup GPIO and Timer
-    setup_gpio();
-    setup_timer();
+/**
+ * Set up the timer
+ * Configures Timer 2 to generate an interrupt every second.
+ */
+void setup_timer(void) {
+    // Enable the Timer 2 clock
+    rcc_periph_clock_enable(RCC_TIM2);
 
-    // Main loop
-    while (1) {
-        // Do nothing, everything is handled in the ISR
-    }
+    // Reset the timer
+    timer_reset(TIM2);
 
+    // Set the timer prescaler and period for 1 Hz blinking (assuming 100 MHz system clock)
+    timer_set_prescaler(TIM2, 10000 - 1);
+    timer_set_period(TIM2, 10000 - 1);
 
+    // Enable the update interrupt
+    timer_enable_irq(TIM2, TIM_DIER_UIE);
 }
