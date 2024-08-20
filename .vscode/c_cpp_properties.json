@@ -8,23 +8,19 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/home/avr1/CLionProjects/bluepill/include",
-                "/home/avr1/CLionProjects/bluepill/src",
+                "/home/avr1/Documents/projects/blackpill-main/blackpill/blackpill/include",
+                "/home/avr1/Documents/projects/blackpill-main/blackpill/blackpill/src",
                 "/home/avr1/.platformio/packages/framework-libopencm3",
                 "/home/avr1/.platformio/packages/framework-libopencm3/include",
-                "/home/avr1/CLionProjects/bluepill/.pio/libdeps/blackpill_f411ce/CMSIS_6/Include",
-                "/home/avr1/CLionProjects/bluepill/.pio/libdeps/blackpill_f411ce/CMSIS_6",
                 ""
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/home/avr1/CLionProjects/bluepill/include",
-                    "/home/avr1/CLionProjects/bluepill/src",
+                    "/home/avr1/Documents/projects/blackpill-main/blackpill/blackpill/include",
+                    "/home/avr1/Documents/projects/blackpill-main/blackpill/blackpill/src",
                     "/home/avr1/.platformio/packages/framework-libopencm3",
                     "/home/avr1/.platformio/packages/framework-libopencm3/include",
-                    "/home/avr1/CLionProjects/bluepill/.pio/libdeps/blackpill_f411ce/CMSIS_6/Include",
-                    "/home/avr1/CLionProjects/bluepill/.pio/libdeps/blackpill_f411ce/CMSIS_6",
                     ""
                 ]
             },
